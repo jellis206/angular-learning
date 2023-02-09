@@ -1,0 +1,17 @@
+
+<label>Username</label>
+<input type="text" class="form-control" [(ngModel)]="userName">
+<p>{{userName}}</p>
+<button
+  class="btn btn-primary"
+  [disabled]="userName === ''"
+  (click) = "userName = ''"
+>Reset User</button>
+<p></p>
+<button class="btn btn-primary" (click) = "toggleDetails()">Display Details</button>
+<p *ngIf="showSecret">Secret Secrets are no fun, unless they are shared with everyone</p>
+<div
+  *ngFor="let log of logs; let i = index"
+  [ngStyle]="{backgroundColor: i > 4 ? 'blue' : 'transparent'}"
+  [ngClass]="{'white-text': i > 4}"
+>{{log}}</div>
